@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace ecommerce.Data.Migrations
+namespace ECommerce.Data.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {

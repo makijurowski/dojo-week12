@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using ecommerce.Models;
+using ECommerce.Models;
 
-namespace ecommerce.Data
+namespace ECommerce.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {

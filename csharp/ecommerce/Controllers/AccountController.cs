@@ -10,11 +10,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using ecommerce.Models;
-using ecommerce.Models.AccountViewModels;
-using ecommerce.Services;
+using ECommerce.Models;
+using ECommerce.Models.AccountViewModels;
+using ECommerce.Services;
 
-namespace ecommerce.Controllers
+namespace ECommerce.Controllers
 {
     [Authorize]
     [Route("[controller]/[action]")]

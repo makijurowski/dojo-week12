@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using ecommerce.Models;
+using ECommerce.Models;
 
-namespace ecommerce.Controllers
+namespace ECommerce.Controllers
 {
     public class HomeController : Controller
     {

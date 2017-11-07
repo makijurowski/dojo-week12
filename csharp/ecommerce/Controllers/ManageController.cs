@@ -10,11 +10,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using ecommerce.Models;
-using ecommerce.Models.ManageViewModels;
-using ecommerce.Services;
+using ECommerce.Models;
+using ECommerce.Models.ManageViewModels;
+using ECommerce.Services;
 
-namespace ecommerce.Controllers
+namespace ECommerce.Controllers
 {
     [Authorize]
     [Route("[controller]/[action]")]
@@ -495,7 +495,7 @@ namespace ecommerce.Controllers
         {
             return string.Format(
                 AuthenicatorUriFormat,
-                _urlEncoder.Encode("ecommerce"),
+                _urlEncoder.Encode("ECommerce"),
                 _urlEncoder.Encode(email),
                 unformattedKey);
         }

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ecommerce.Models.ManageViewModels
+namespace ECommerce.Models.ManageViewModels
 {
     public class GenerateRecoveryCodesViewModel
     {
