@@ -10,8 +10,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Mvc;
 using ECommerce.Data;
 using ECommerce.Models;
+using Microsoft.AspNetCore.Rewrite;
 
 namespace ECommerce
 {
@@ -33,6 +35,11 @@ namespace ECommerce
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+            services.AddAuthentication().AddFacebook(facebookOptions =>
+            {
+                facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
+                facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+            });
             services.Configure<IdentityOptions>(options =>
             {
                 options.Password.RequireDigit = true;
@@ -60,6 +67,10 @@ namespace ECommerce
             services.AddRouting(option => option.LowercaseUrls = true);
             services.AddSession();
             services.AddMvc();
+            services.Configure<MvcOptions>(options =>
+            {
+                options.Filters.Add(new RequireHttpsAttribute());
+            });
         }
 
         public Startup(IHostingEnvironment env)
@@ -84,6 +95,11 @@ namespace ECommerce
                 app.UseExceptionHandler("/Error");
             }
             loggerFactory.AddConsole();
+            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+            loggerFactory.AddDebug();
+            var options = new RewriteOptions()
+               .AddRedirectToHttps();
+            app.UseRewriter(options);
             app.UseStaticFiles();
             app.UseAuthentication();
             app.UseSession();
